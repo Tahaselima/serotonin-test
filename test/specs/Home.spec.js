@@ -32,17 +32,25 @@ describe('Shooping', ()  => {
     ProductPage.getAddToCompareButton(1).click()
     ProductPage.StoreAsc.moveTo()
     ProductPage.StoreAsc.click()
+    ProductPage.getProductItem(1).waitForDisplayed(5000)
     ProductPage.getProductItem(1).moveTo()
     ProductPage.getAddToCompareButton(1).click()
     const productCount = parseInt(ProductPage.ProductTotalCount.getText())
     if (productCount > 3) {
+      ProductPage.getProductItem(2).waitForDisplayed(5000)
       ProductPage.getProductItem(2).moveTo()
       ProductPage.getAddToCompareButton(2).click()
     }
+    ProductPage.addedItemCount.waitForDisplayed(5000)
+    const addedCount = ProductPage.addedItemCount.getText().split(' ')[0]
+    expect(parseInt(addedCount)).to.equal(3)
   })
 
   it('route compare', () => {
-    ProductPage.CompareButton.moveTo()
-    ProductPage.CompareButton.click()
+    if (!ProductPage.CompareButton.isDisplayed()) {
+      ProductPage.CompareButton.waitForDisplayed(100000)
+    }
+      ProductPage.CompareButton.moveTo()
+      ProductPage.CompareButton.click()
   })
 })

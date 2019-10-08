@@ -10,7 +10,10 @@ class ProductsPage extends Page {
     return $('#toolbar-amount > .toolbar-number:last-child')
   }
   get CompareButton() {
-    return $('#maincontent > div.columns > div.sidebar.sidebar-additional > div.block.block-compare > div.block-content > div > div.primary > a')
+    return $('body > div.page-wrapper > header > div.header.content > ul > li > a')
+  }
+  get addedItemCount() {
+    return $('body > div.page-wrapper > header > div.header.content > ul > li > a > span')
   }
   getProductItem(index) {
     return $(`ol > li:nth-child(${index}`)
