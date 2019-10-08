@@ -4,7 +4,8 @@
   "description": "CI TestHackathon",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio ./config/wdio.conf.js --spec"
+    "test": "./node_modules/.bin/wdio ./config/wdio.conf.js --spec",
+    "test:dev": "./node_modules/.bin/wdio ./config/wdio.conf-dev.js --spec"
   },
   "repository": {
     "type": "git",
