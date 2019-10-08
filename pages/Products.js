@@ -1,4 +1,4 @@
-class Products extends Page {
+class ProductsPage extends Page {
   getSorterSelect() { 
     return $('#sorter') 
   }
@@ -15,3 +15,5 @@ class Products extends Page {
     return $(`#maincontent > div.columns > div.column.main > div.products.wrapper.grid.products-grid > ol > li:nth-child(${index}) > div > div > div.product-item-inner > div > div.actions-secondary > a.action.tocompare`)
   }
 }
+
+export default new ProductsPage()
