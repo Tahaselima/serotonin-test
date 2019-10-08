@@ -1,8 +1,9 @@
 import HomePage from '../../pages/Home';
+import ProductPage from '../../pages/Products'
 
 import 'chai/register-expect';
 
-describe('Route is Corrent in Menu', ()  => {
+describe('Shooping', ()  => {
   it('menu click correct', () => {
     HomePage.gotoHomePage();
     if (!browser.isLoading()) {
@@ -23,5 +24,33 @@ describe('Route is Corrent in Menu', ()  => {
       HomePage.gotoProduct(randomTop).click()
       expect(browser.getTitle()).to.contain(menuText)
     }
+  })
+
+  it('select correct product', () => {
+    ProductPage.getPriceSorterOption.click()
+    ProductPage.getProductItem(1).moveTo()
+    ProductPage.getAddToCompareButton(1).click()
+    ProductPage.StoreAsc.moveTo()
+    ProductPage.StoreAsc.click()
+    ProductPage.getProductItem(1).waitForDisplayed(5000)
+    ProductPage.getProductItem(1).moveTo()
+    ProductPage.getAddToCompareButton(1).click()
+    const productCount = parseInt(ProductPage.ProductTotalCount.getText())
+    if (productCount > 3) {
+      ProductPage.getProductItem(2).waitForDisplayed(5000)
+      ProductPage.getProductItem(2).moveTo()
+      ProductPage.getAddToCompareButton(2).click()
+    }
+    ProductPage.addedItemCount.waitForDisplayed(5000)
+    const addedCount = ProductPage.addedItemCount.getText().split(' ')[0]
+    expect(parseInt(addedCount)).to.equal(3)
+  })
+
+  it('route compare', () => {
+    if (!ProductPage.CompareButton.isDisplayed()) {
+      ProductPage.CompareButton.waitForDisplayed(100000)
+    }
+      ProductPage.CompareButton.moveTo()
+      ProductPage.CompareButton.click()
   })
 })
