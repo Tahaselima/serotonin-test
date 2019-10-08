@@ -1,0 +1,40 @@
+{
+  "name": "testhackathon",
+  "version": "1.0.0",
+  "description": "CI TestHackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio ./config/wdio.conf.js --spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tahaselima/serotonin-test.git"
+  },
+  "keywords": [
+    "Test",
+    "CI",
+    "Testting"
+  ],
+  "author": "Taha Selim, Hatice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tahaselima/serotonin-test/issues"
+  },
+  "homepage": "https://github.com/Tahaselima/serotonin-test#readme",
+  "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^5.14.4",
+    "@wdio/local-runner": "^5.14.4",
+    "@wdio/mocha-framework": "^5.14.4",
+    "@wdio/spec-reporter": "^5.14.4",
+    "@wdio/sync": "^5.14.4",
+    "chromedriver": "^77.0.0",
+    "wdio-chromedriver-service": "^5.0.2"
+  }
+}
