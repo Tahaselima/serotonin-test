@@ -1,14 +1,15 @@
+import Page from './Page'
 class ProductsPage extends Page {
-  getSorterSelect() { 
+  get SorterSelect() { 
     return $('#sorter') 
   }
-  getPriceSorterOption()  { 
+  get getPriceSorterOption()  { 
     return $('#sorter option[value="price"]')
   }
-  getStoreAsc() {
+  get StoreAsc() {
     return $('a[data-role="direction-switcher"]')
   }
-  getProductTotalCount() {
+  get ProductTotalCount() {
     return $('#toolbar-amount > .toolbar-number:last-child')
   }
   getAddToCompareButton(index) {
